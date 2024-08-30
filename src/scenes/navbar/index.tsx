@@ -1,6 +1,11 @@
-type Props = {}
+import Link from "./Link";
 
-const Navbar = (props: Props) => {
+type Props = {
+  selectedPage: string;
+  setSelectedPage: (value: string) => void;
+}
+
+const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-center";
   return (
     <nav>
@@ -12,10 +17,26 @@ const Navbar = (props: Props) => {
             {/* RIGHT SIDE */}
             <div className={`${flexBetween} w-full`}>
               <div className={`${flexBetween} gap-8 text-sm *:cursor-pointer`}>
-                <p>Home</p>
-                <p>Benefits</p>
-                <p>Our Classes</p>
-                <p>Contact Us</p>
+                <Link
+                  page='Home'
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}
+                />
+                <Link
+                  page='Benefits'
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}
+                />
+                <Link
+                  page='Our Classes'
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}
+                />
+                <Link
+                  page='Contact Us'
+                  selectedPage={selectedPage}
+                  setSelectedPage={setSelectedPage}
+                />
               </div>
               <div className={`${flexBetween} gap-8 text-sm`}>
                 <p>Sign In</p>
