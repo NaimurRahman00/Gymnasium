@@ -1,10 +1,10 @@
-import from "@/scenes/navbar";
+import Navbar from "@/scenes/navbar";
 
 function App() {
 
   return (
     <>
-      <h1 className="">Hello TypeScript!</h1>
+      <Navbar></Navbar>
     </>
   )
 }
