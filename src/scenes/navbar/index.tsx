@@ -1,8 +1,9 @@
+import { SelectedPage } from "@/shared/type";
 import Link from "./Link";
 
 type Props = {
-  selectedPage: string;
-  setSelectedPage: (value: string) => void;
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
 }
 
 const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
