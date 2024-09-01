@@ -61,6 +61,43 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
           </div>
         </div>
       </div>
+
+      {/* MOBILE MENU MODAL */}
+      {isAboveMediumScreens && isMenuToggled && (
+        <div className="fixed w-[300px] h-full right-0 bottom-0 z-40 bg-primary-100 drop-shadow-xl">
+          {/* CLOSE MODAL ICON */}
+          <div className="flex justify-end p-12">
+            <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path className="text-gray-400 size-6" strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          {/* MENU ITEMS */}
+          <div className="ml-[33%] flex flex-col justify-between gap-10 text-2xl">
+            <Link
+              page='Home'
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+              page='Benefits'
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+              page='Our Classes'
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+            <Link
+              page='Contact Us'
+              selectedPage={selectedPage}
+              setSelectedPage={setSelectedPage}
+            />
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
