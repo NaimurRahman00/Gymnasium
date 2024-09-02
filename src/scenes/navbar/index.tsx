@@ -5,17 +5,19 @@ import { useState } from "react";
 import ActionButton from "@/shared/ActionButton";
 
 type Props = {
+  isTopOfPage: boolean;
   selectedPage: SelectedPage;
   setSelectedPage: (value: SelectedPage) => void;
 }
 
-const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
+const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }: Props) => {
   const flexBetween = "flex items-center justify-between";
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false)
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+  const navBarBackground = isTopOfPage ? '' : 'bg-primary-100 drop-shadow';
   return (
     <nav>
-      <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
+      <div className={`${flexBetween} ${navBarBackground} fixed top-0 z-30 w-full py-6`}>
         <div className={`${flexBetween} mx-auto w-5/6`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* LEFT SIDE */}
@@ -63,13 +65,13 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
       </div>
 
       {/* MOBILE MENU MODAL */}
-      {isAboveMediumScreens && isMenuToggled && (
+      {!isAboveMediumScreens && isMenuToggled && (
         <div className="fixed w-[300px] h-full right-0 bottom-0 z-40 bg-primary-100 drop-shadow-xl">
           {/* CLOSE MODAL ICON */}
-          <div className="flex justify-end p-12">
-            <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
+          <div className="flex justify-end py-8 px-11">
+            <button className="text-gray-400 size-6 hover:text-gray-700" onClick={() => setIsMenuToggled(!isMenuToggled)}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                <path className="text-gray-400 size-6" strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
