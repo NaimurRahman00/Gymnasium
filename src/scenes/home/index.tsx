@@ -22,6 +22,9 @@ const Home = ({ setSelectedPage }: Props) => {
                     {/* HEADINGS */}
                     <div className='md:-mt-20'>
                         <div className='relative'>
+                            <div>
+                                <h2 className='hidden md:flex uppercase text-[16rem] font-black absolute -top-44 -left-32 text-gray-400/30 -z-10'>EVOLVE</h2>
+                            </div>
                             <div className='mb-3'>
                                 <h2 className='uppercase text-[8rem] font-black -ml-2'>gymnasium</h2>
                                 <h3 className='text-5xl font-extralight -mt-6'>Your Ultimate Fitness Destination!</h3>
